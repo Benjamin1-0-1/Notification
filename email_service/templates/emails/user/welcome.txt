@@ -1,0 +1,8 @@
+Hello {{ user.first_name }},
+
+Welcome to our platform! Your account has been successfully created.
+
+Login Email: {{ user.email }}
+
+Regards,
+The Team

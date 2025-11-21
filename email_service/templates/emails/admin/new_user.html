@@ -1,0 +1,12 @@
+{% extends "emails/base.html" %}
+{% block content %}
+<p>Admin,</p>
+
+<p>A new user has registered:</p>
+
+<ul>
+    <li>Name: {{ user.full_name }}</li>
+    <li>Email: {{ user.email }}</li>
+    <li>Date: {{ created_at }}</li>
+</ul>
+{% endblock %}

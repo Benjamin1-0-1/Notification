@@ -1,0 +1,10 @@
+{% extends "emails/base.html" %}
+{% block content %}
+<p>Hello {{ user.first_name }},</p>
+
+<p>Welcome to our platform! We're excited to have you onboard.</p>
+
+<p>You can log in anytime using your email: <strong>{{ user.email }}</strong></p>
+
+<p>Regards,<br>The Team</p>
+{% endblock %}

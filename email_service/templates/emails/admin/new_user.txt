@@ -1,0 +1,7 @@
+Admin,
+
+A new user has registered.
+
+Name: {{ user.full_name }}
+Email: {{ user.email }}
+Date: {{ created_at }}

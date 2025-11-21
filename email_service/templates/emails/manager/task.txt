@@ -1,0 +1,8 @@
+Hello {{ manager.name }},
+
+A new task has been assigned to you:
+
+{{ task.title }}
+{{ task.description }}
+
+Deadline: {{ task.deadline }}

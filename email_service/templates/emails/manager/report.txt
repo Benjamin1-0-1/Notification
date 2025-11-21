@@ -1,0 +1,6 @@
+Hello {{ manager.name }},
+
+Your requested report is ready:
+
+Report Name: {{ report.name }}
+Download URL: {{ report.url }}

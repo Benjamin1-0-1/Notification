@@ -1,3 +1,0 @@
-"""
-Notification service app initialization.
-"""

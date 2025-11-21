@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'notifications',
+    'email_service',
 ]
 
 MIDDLEWARE = [
@@ -132,9 +132,10 @@ EMAIL_BACKEND = os.environ.get(
     'django.core.mail.backends.console.EmailBackend',
 )
 EMAIL_HOST = os.environ.get('DJANGO_EMAIL_HOST', 'localhost')
-EMAIL_PORT = int(os.environ.get('DJANGO_EMAIL_PORT', 1025))
-EMAIL_HOST_USER = os.environ.get('DJANGO_EMAIL_HOST_USER', '')
-EMAIL_HOST_PASSWORD = os.environ.get('DJANGO_EMAIL_HOST_PASSWORD', '')
+EMAIL_PORT = int(os.environ.get('DJANGO_EMAIL_PORT', 587))
+
+EMAIL_HOST_USER = os.environ.get('DJANGO_EMAIL_HOST_USER', 'user')
+EMAIL_HOST_PASSWORD = os.environ.get('DJANGO_EMAIL_HOST_PASSWORD', 'pass')
+
 EMAIL_USE_TLS = os.environ.get('DJANGO_EMAIL_USE_TLS', 'false').lower() in {'1', 'true', 'yes'}
-EMAIL_USE_SSL = os.environ.get('DJANGO_EMAIL_USE_SSL', 'false').lower() in {'1', 'true', 'yes'}
-DEFAULT_FROM_EMAIL = os.environ.get('DJANGO_DEFAULT_FROM_EMAIL', 'Notification Service <no-reply@example.com>')
+DEFAULT_FROM_EMAIL = os.environ.get('DJANGO_DEFAULT_FROM_EMAIL', 'Areris World Service <arerisworld@gmail.com>')

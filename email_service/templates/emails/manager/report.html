@@ -1,0 +1,9 @@
+{% extends "emails/base.html" %}
+{% block content %}
+<p>Hello {{ manager.name }},</p>
+
+<p>Your requested report is ready:</p>
+
+<p><strong>{{ report.name }}</strong></p>
+<p>Download here: {{ report.url }}</p>
+{% endblock %}

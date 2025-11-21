@@ -1,0 +1,11 @@
+{% extends "emails/base.html" %}
+{% block content %}
+<p>Hello {{ manager.name }},</p>
+
+<p>A new task has been assigned to you:</p>
+
+<p><strong>{{ task.title }}</strong></p>
+<p>{{ task.description }}</p>
+
+<p>Deadline: {{ task.deadline }}</p>
+{% endblock %}
