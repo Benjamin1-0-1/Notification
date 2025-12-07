@@ -12,9 +12,11 @@ class AfricasTalkingSmsClient(SmsClient):
 
     def send_sms(self, to: str, body: str, sender_id=None) -> SmsSendResult:
         sender = sender_id or settings.AFRICASTALKING_SENDER_ID
+        print("SENDER USED:", sender)
 
         try:            
             response = self.sms.send(body, [to], sender)
+            print(response)
             message_data = response.get("SMSMessageData", {})
             recipients = message_data.get("Recipients", [])
             recipient = recipients[0] if recipients else {}
