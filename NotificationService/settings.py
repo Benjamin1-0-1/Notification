@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 import os
 from pathlib import Path
-
+from dotenv import load_dotenv
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,8 +27,13 @@ SECRET_KEY = 'django-insecure-s2$ruhf&#04hhmic6@ww0p+==9mz7==v6=6s9enpd@v#k_h%*u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#AFICA'S TALKING
 
+ALLOWED_HOSTS = []
+AFRICASTALKING_USERNAME = os.getenv("AFRICASTALKING_USERNAME", "sandbox")
+AFRICASTALKING_API_KEY = os.getenv("AFRICASTALKING_API_KEY", "")
+AFRICASTALKING_SENDER_ID = os.getenv("AFRICASTALKING_SENDER_ID", "")
+DEFAULT_SMS_REGION = "KE"
 
 # Application definition
 
@@ -38,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "sms_service",
     'email_service',
 ]
 
