@@ -1,0 +1,11 @@
+Django>=4.2,<6.0
+psycopg2-binary>=2.9.9
+python-decouple>=3.8
+requests>=2.31.0
+ujson>=5.9.0
+# Email providers (SendGrid SDK – optional but recommended)
+sendgrid>=6.11.0
+# Local webhook testing
+pyngrok>=7.0.0
+python-dateutil>=2.8.2
+

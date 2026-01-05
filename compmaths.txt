@@ -1,0 +1,41 @@
+-------------&&transfer to matlab&&----------------
+
+r =[2,3,4]row vectors
+r1= [2,6,3]
+c= [2;3;4]column vectors
+c1=[7;2;9]
+
+Basic operations on vectors
+1)V=r+c
+2)v1 =r+r1
+3)b= c-c1
+disp(v,,v1,b)
+Multiplication with scalar
+p = pi
+m= p*r #scalar multiplication
+disp(m)
+sqrt29 == 5.3885
+Tranpose dot and corss product
+t=t'; #the single quote(') transposes the vector
+the transpose of the row vector r is
+disp(t)
+Dot product
+s = dot(r,r1);
+disp('the dot product of vector r and r1 is:')
+disp(s)
+Computing the maagnitude of a vector in Rn(real numbers)Euclidean space of n dimension
+q = sqrt(dot(r,r))
+disp('the magnitude of r is :' )
+disp(q)
+cross product[vector is the result]
+j = cross(c,c1)
+disp(the cross product of the vector c and c1 is :)
+disp(j)
+A = [2,3,4]
+B =[4,8,10]
+C=[15,11,17]
+
+o=C-A
+l=B-A
+
+area= 1/2*sqrt((cross(o,l)))magnitude for o and l

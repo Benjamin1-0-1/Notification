@@ -14,7 +14,7 @@ class AfricasTalkingSmsClient(SmsClient):
         sender = sender_id or settings.AFRICASTALKING_SENDER_ID
         print("SENDER USED:", sender)
 
-        try:            
+        try:
             response = self.sms.send(body, [to], sender)
             print(response)
             message_data = response.get("SMSMessageData", {})

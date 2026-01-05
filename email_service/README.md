@@ -34,3 +34,57 @@ The `EmailNotificationView` is wired at `/api/email/send/`. POST JSON like:
 ```
 
 On success the endpoint returns `{"status": "sent", "delivered": 1}`.
+
+
+# Email Service – Architecture & Request Flow
+
+This module provides a structured, auditable, and scalable email-sending system
+for the Django project. Emails are treated as first-class records in the database,
+allowing tracking, retries, analytics, and future async processing.
+
+---
+
+## 1. High-Level Overview
+
+An email request in this system follows **three major phases**:
+
+1. **Preparation (queueing)**
+2. **Sending**
+3. **Post-send tracking**
+
+At no point is an email sent without first being persisted in the database.
+
+---
+
+## 2. Email Request Lifecycle (Step-by-Step)
+
+### Step 1: Trigger
+An email request is triggered by:
+- a user action (registration, password reset)
+- an admin or manager action
+- a test endpoint (e.g. `/email/test-manager/`)
+
+This trigger calls the EmailService.
+
+---
+
+### Step 2: Template Rendering
+The EmailService loads and renders templates using Django’s template engine:
+
+- Plain text template (`.txt`)
+- HTML template (`.html`)
+
+Example:
+```python
+render_to_string("emails/manager/task_assigned_manager.html", context)
+
+
+Step 3: EmailMessage Record Creation
+A new record is created in the database
+Step 4: Recipient Persistence
+Each recipient is saved individually in the EmailRecipient table
+
+Step 5: Email Sending
+Step 6: Status Update
+
+
