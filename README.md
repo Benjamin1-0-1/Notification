@@ -10,20 +10,15 @@ Django 5.2 project providing email and SMS notification services with Africa's T
 - `db.sqlite3` – local SQLite database.
 - `manage.py` – Django entry point.
 
-## Requirements
-- Python 3.10+ recommended
-- Key packages: `Django==5.2.8`, `africastalking==2.0.1`, `python-dotenv`, `requests`, `PyYAML`
-- Install: `pip install Django==5.2.8 africastalking==2.0.1 python-dotenv requests PyYAML`
-
 ## Environment Variables
-Set these in `.env` (loaded via `python-dotenv` in `NotificationService/settings.py`):
+Set these in `.env`
 - `AFRICASTALKING_USERNAME` (default: `sandbox`)
 - `AFRICASTALKING_API_KEY`
 - `AFRICASTALKING_SENDER_ID`
-- `DJANGO_EMAIL_BACKEND` (default: `django.core.mail.backends.console.EmailBackend`)
+- `DJANGO_EMAIL_BACKEND`
 - `DJANGO_EMAIL_HOST`, `DJANGO_EMAIL_PORT`, `DJANGO_EMAIL_HOST_USER`, `DJANGO_EMAIL_HOST_PASSWORD`
-- `DJANGO_EMAIL_USE_TLS` (`true`/`false`, default `false`)
-- `DJANGO_DEFAULT_FROM_EMAIL` (default: `Areris World Service <arerisworld@gmail.com>`)
+- `DJANGO_EMAIL_USE_TLS`
+- `DJANGO_DEFAULT_FROM_EMAIL`
 
 ## Setup & Run
 1) Create venv: `python -m venv .venv && .\.venv\Scripts\activate`
@@ -46,19 +41,7 @@ Set these in `.env` (loaded via `python-dotenv` in `NotificationService/settings
   - `GET /email/test-user/` – user welcome template.
   - `GET /email/test-admin/` – admin new-user alert template.
   - `GET /email/test-manager/` – manager task assignment template.
-- Usage example:
-  ```python
-  from email_service.services import EmailService
 
-  email_msg = EmailService.queue_template_email(
-      subject="Welcome",
-      to=["user@example.com"],
-      template_path="user/welcome",
-      context={"user": {"first_name": "Ada", "email": "user@example.com"}},
-      from_email="no-reply@example.com",
-  )
-  EmailService.send_email(email_msg.id)
-  ```
 
 ## SMS Service (`sms_service`)
 - Core service: `sms_service/services/sms_service.py::SmsService`
@@ -80,8 +63,3 @@ Set these in `.env` (loaded via `python-dotenv` in `NotificationService/settings
 - Start server: `python manage.py runserver`
 - Email demos: visit `/email/test-email/`, `/email/test-user/`, `/email/test-admin/`, `/email/test-manager/`
 - SMS demo: visit `/sms/test/` (requires valid Africa's Talking sandbox or live credentials)
-
-## Notes
-- Database: SQLite by default (`db.sqlite3`); adjust `DATABASES` in `NotificationService/settings.py` for production.
-- Attachments/headers are modeled but expect storage/backends to be configured for production email delivery.
-- For production, ensure `DEBUG=False`, set `ALLOWED_HOSTS`, and use a real SMTP backend.
