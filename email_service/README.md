@@ -35,7 +35,6 @@ The `EmailNotificationView` is wired at `/api/email/send/`. POST JSON like:
 
 On success the endpoint returns `{"status": "sent", "delivered": 1}`.
 
-
 # Email Service – Architecture & Request Flow
 
 This module provides a structured, auditable, and scalable email-sending system
