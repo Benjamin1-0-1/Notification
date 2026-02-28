@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("sms/", include("sms_service.urls")),
     path('email/', include('email_service.urls')),
+    path('auth_service/', include('auth_service.urls')),
 ]

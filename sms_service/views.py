@@ -8,7 +8,7 @@ def send_test_sms(request):
         "This is a test SMS from Africa's Talking Django service."
     )
     return JsonResponse({
-        "to": sms.to,
-        "status": sms.status,
-        "provider_message_id": sms.provider_message_id
+        "to": getattr(sms, "to", None),
+        "status": getattr(sms, "status", None),
+        "provider_message_id": getattr(sms, "provider_message_id", None),
     })

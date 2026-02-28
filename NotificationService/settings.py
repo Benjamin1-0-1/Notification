@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "sms_service",
     'email_service',
+    'auth_service',
 ]
 
 MIDDLEWARE = [

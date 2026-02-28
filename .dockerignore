@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual env
+venv/
+
+# SQLite (optional – depends on setup)
+*.sqlite3
+
+# Dependency directories
+node_modules/
+dist/
+out/
+build/
+public/build/
+
+# Build and cache directories
+.vite/
+.vitepress/
+.cache/
+.tmp/
+
+# Test output and coverage
+coverage/
+reports/
+jest/
+cypress/
+cypress/screenshots/
+cypress/videos/
+
+# Environment and config files
+*.env*
+*.local
+*.log
+
+# TypeScript artifacts
+*.tsbuildinfo
+
+# Editor and IDE config
+.vscode/
+.idea/
+*.swp
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Version control
+.git/
+.gitignore
+
+# Docker-related files
+Dockerfile
+.dockerignore
+docker-compose.yml
+docker-compose.override.yml
